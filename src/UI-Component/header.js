@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SignIn from "./Login/login";
 import AdminDashboard from "./Adminpanel/dashboard";
 import UserDashboard from "./User/userdashboard";
-import PageBody from "./pagebody";
+import LandingPage from "./landingpage";
 
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);

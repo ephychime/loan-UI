@@ -1,6 +1,6 @@
 import { FileText,CheckCircle, DollarSign } from "react-feather";
 
-const PageBody = ()  =>{
+const LandingPage = ()  =>{
 
     return (
         <div className=" fixed w-screen ">
@@ -29,4 +29,4 @@ const PageBody = ()  =>{
     )
 }
 
-export default PageBody;
+export default LandingPage;

@@ -14,15 +14,14 @@ const CurrentLoan = () => {
   const [showUnpaid, setShowUnpaid] = useState(true);
 
   // Function to filter loans based on repaid status
-  const filterLoans = () => {
-    return loanData.filter((loan) => (showRepaid && loan.repaid) || (showUnpaid && !loan.repaid));
-  };
+  const filterloans = loanData.filter((loan) => (showRepaid && loan.repaid) || (showUnpaid && !loan.repaid));
+
 
   return (
     <div className="container w-screen h-screen mx-auto mt-20 p-4 bg-white shadow-lg rounded-md">
       <h1 className="text-2xl font-bold mb-4">Loan Overview</h1>
 
-      {/* Filter options */}
+      
       <div className="flex mb-4">
         <label className="mr-4">
           <input
@@ -44,7 +43,6 @@ const CurrentLoan = () => {
         </label>
       </div>
 
-      {/* Loans table */}
       <table className="min-w-full border border-gray-300">
         <thead>
           <tr>
@@ -54,14 +52,14 @@ const CurrentLoan = () => {
           </tr>
         </thead>
         <tbody>
-          {filterLoans().length === 0 ? (
+          {filterloans.length === 0 ? (
             <tr>
               <td colSpan="3" className="py-2 px-4 text-center">
                 No loans found.
               </td>
             </tr>
           ) : (
-            filterLoans().map((loan) => (
+            filterloans.map((loan) => (
               <tr key={loan.id}>
                 <td className="py-2 px-4 border-b">{loan.id}</td>
                 <td className="py-2 px-4 border-b">${loan.amount}</td>
