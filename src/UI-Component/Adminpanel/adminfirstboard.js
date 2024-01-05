@@ -1,39 +1,24 @@
-import React from "react";
 
+import React from "react";
+import StatStyle from "./statbox";
 
 const AdminFirstBoard = () => {
+
+  const adminStat = "flex flex-col sm:flex-row justify-between mt-10 mx-auto"
+
   return (
-    <div className="  font-bold text-center">
-    
-      <div className="flex flex-col md:flex-row justify-between mt-10 mx-auto">
-        <div className="w-full md:w-8/12 h-1/2 bg-blue-400 text-black justify-between rounded-md flex mb-6 md:mb-0">
-          <div className="border border-gray-400 rounded-md w-full md:w-2/5">
-            <h1 className="text-sm font-semibold pl-2 py-2">ACTIVE USERS</h1>
-            <p className="text-2xl pl-2 font-bold">400</p>
-            <p className="text-sm pl-2 py-4">5.27% since last month</p>
-          </div>
-          <div className="border border-gray-400 rounded-md w-full md:w-2/5">
-            <h1 className="text-sm font-semibold pl-2 py-2">ACTIVE USERS</h1>
-            <p className="text-2xl pl-2 font-bold">400</p>
-            <p className="text-sm pl-2 py-4">5.27% since last month</p>
-          </div>
-          
+    <div className="font-bold text-center">
+      <div className= {adminStat}>
+        <div className="w-full lg:w-8/12 h-1/2 bg-blue-400 text-black justify-between rounded-md flex mb-6 lg:mb-0">
+          <StatStyle title="ACTIVE USERS" value="400" subtitle="5.27% since last month" />
+          <StatStyle title="ACTIVE USERS" value="400" subtitle="5.27% since last month" />
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between mx-auto">
-        <div className="w-full md:w-8/12 h-1/2 bg-blue-400 text-black justify-between rounded-md flex">
-          <div className="border border-gray-400  rounded-md w-full md:w-2/5 mb-6 md:mb-0">
-            <h1 className="text-sm font-semibold pl-2 py-2">NEW USERS</h1>
-            <p className="text-2xl pl-2 font-bold">400</p>
-            <p className="text-sm pl-2 py-4">5.27% since last month</p>
-          </div>
-          <div className="border border-gray-400 text-black rounded-md w-full md:w-2/5 mb-6 md:mb-0">
-            <h1 className="text-sm font-semibold pl-2 py-2">NEW USERS</h1>
-            <p className="text-2xl pl-2 font-bold">400</p>
-            <p className="text-sm pl-2 py-4">5.27% since last month</p>
-          </div>
-          
+      <div className={adminStat}>
+        <div className="w-full lg:w-8/12 h-1/2 bg-blue-400 text-black justify-between rounded-md flex">
+          <StatStyle title="NEW USERS" value="400" subtitle="5.27% since last month" />
+          <StatStyle title="NEW USERS" value="400" subtitle="5.27% since last month" />
         </div>
       </div>
     </div>

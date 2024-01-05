@@ -1,15 +1,10 @@
+
 import React, { useState } from 'react';
+import clientsVerify from '../dummydata/utilverifyloans';
+import TableHeader from './tabeleheaderstyle';
 
 const ViewVerified = () => {
-  const [clients, setClients] = useState([
-    { id: 1, name: 'Client 1', verified: false, homeAddress: '123 Main St, Cityville', workAddress: '456 Office St, WorkCity', comment: "Unknown Address", createdDate: '2023-01-15' },
-    { id: 2, name: 'Client 2', verified: false, homeAddress: '123 Main St, Cityville', workAddress: '456 Office St, WorkCity', comment: "relocated", createdDate: '2023-02-10' },
-    { id: 3, name: 'Client g', verified: true, homeAddress: '123 Main St, Cityville', workAddress: '456 Office St, WorkCity', comment: " Location confirmed", createdDate: '2023-03-05' },
-    { id: 1, name: 'Client 4', verified: false, homeAddress: '123 Main St, Cityville', workAddress: '456 Office St, WorkCity', homeAddress: '123 Main St, Cityville', createdDate: '2023-04-20' },
-    { id: 2, name: 'Client 5', verified: false, homeAddress: '123 Main St, Cityville', workAddress: '456 Office St, WorkCity', comment: "cancellation ", createdDate: '2023-05-15' },
-    { id: 3, name: 'Client 12', verified: true, homeAddress: '123 Main St, Cityville', workAddress: '456 Office St, WorkCity', comment: "Address located", createdDate: '2023-06-02' },
-    // Add more clients as needed
-  ]);
+  const [clients, setClients] = useState(clientsVerify);
 
   const handleVerify = (clientId) => {
     const updatedClients = clients.map((client) =>
@@ -17,50 +12,47 @@ const ViewVerified = () => {
     );
     setClients(updatedClients);
   };
+const rowStyle = "border-b-2 text-sm p-2"
 
   return (
-    <div className="mx-auto mt-20 container justify-center content-center w-screen">
-      <table className="w-10/12 bg-white border mx-auto mb-80">
-        <thead>
-          <tr>
-            <th className="text-left p-3 text-sm border-b-2 bg-gray-400">ID</th>
-            <th className="text-left text-sm border-b-2 bg-gray-400">Full Name</th>
-            <th className="text-left text-sm border-b-2 bg-gray-400">Home Address</th>
-            <th className="text-left text-sm border-b-2 bg-gray-400">Work Address</th>
-            <th className="text-left text-sm border-b-2 bg-gray-400">Status</th>
-            <th className="text-left text-sm border-b-2 bg-gray-400">Comment</th>
-            <th className="text-left text-sm border-b-2 bg-gray-400">Date Created</th>
-            <th className="text-left text-sm border-b-2 bg-gray-400">Verify</th>
-          </tr>
-        </thead>
-        <tbody>
-          {clients.map((client) => (
-            <tr key={client.id}>
-              <td className="border-b-2 text-sm">{client.id}</td>
-              <td className="border-b-2 text-sm p-2">{client.name}</td>
-              <td className="border-b-2 text-sm p-2">{client.homeAddress}</td>
-              <td className="border-b-2 text-sm p-2">{client.workAddress}</td>
-              <td className="border-b-2 text-sm p-2">
-                <span className={client.verified ? 'text-green-500' : 'text-red-500'}>
-                  {client.verified ? 'Verified' : 'Not Verified'}
-                </span>
-              </td>
-              <td className="border-b-2 text-sm p-2">{client.comment}</td>
-              <td className="border-b-2 text-sm p-2">{client.createdDate}</td>
-              <td className="text-sm p-3 border-b-2">
-                {!client.verified && (
-                  <button
-                    className="text-sm px-2 py-1 bg-blue-400 text-white rounded-md"
-                    onClick={() => handleVerify(client.id)}
-                  >
-                    Verify
-                  </button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
+    <div className="mx-auto mt-20 container justify-center text-black  w-screen">
+      <div className="grid grid-cols-8 bg-white border mx-auto mb-80">
+        <TableHeader text = "Id" />
+        <TableHeader text = "Full Name"/>
+        <TableHeader text = "Home Address"/>
+        <TableHeader text = "Work Address"/>
+        <TableHeader text = "Status"/>
+        <TableHeader text = "Comment"/>
+        <TableHeader text = "Date Created"/>
+        <TableHeader text = "Verify"/>
+       
+        {clients.map((client) => (
+          <React.Fragment key={client.id}>
+            <div className={rowStyle}>{client.id}</div>
+            <div className={rowStyle}>{client.name}</div>
+            <div className={rowStyle}>{client.homeAddress}</div>
+            <div className={rowStyle}>{client.workAddress}</div>
+            <div className={rowStyle}>
+              <span className={client.verified ? 'text-green-500' : 'text-red-500'}>
+                {client.verified ? 'Verified' : 'Not Verified'}
+              </span>
+            </div>
+            <div className={rowStyle}>{client.comment}</div>
+            <div className={rowStyle}>{client.createdDate}</div>
+            <div className="text-sm p-2 border-b-2">
+              {!client.verified && (
+                <button
+                  className="text-sm px-2 py-1 bg-blue-400 text-white rounded-md"
+                  onClick={() => handleVerify(client.id)}
+                >
+                  Verify
+                </button>
+              )}
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
     </div>
   );
 };

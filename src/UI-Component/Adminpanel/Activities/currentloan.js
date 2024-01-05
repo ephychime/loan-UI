@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
 const CurrentLoan = () => {
-  // Assuming a random data for this    
+
   const loanData = [
     { id: 1, amount: 5000, repaid: true },
     { id: 2, amount: 8000, repaid: false },
     { id: 3, amount: 10000, repaid: true },
-    // Add more entries as needed
+    
   ];
+const cellStyle = "py-2 px-4 text-black border-b"
 
   // State for filtering
   const [showRepaid, setShowRepaid] = useState(true);
@@ -18,7 +19,7 @@ const CurrentLoan = () => {
 
 
   return (
-    <div className="container w-screen h-screen mx-auto mt-20 p-4 bg-white shadow-lg rounded-md">
+    <div className="h-screen text-black mt-20">
       <h1 className="text-2xl font-bold mb-4">Loan Overview</h1>
 
       
@@ -28,7 +29,7 @@ const CurrentLoan = () => {
             type="checkbox"
             checked={showRepaid}
             onChange={() => setShowRepaid(!showRepaid)}
-            className="mr-2"
+            className="mr-2 "
           />
           Show Repaid Loans
         </label>
@@ -43,12 +44,12 @@ const CurrentLoan = () => {
         </label>
       </div>
 
-      <table className="min-w-full border border-gray-300">
+      <table className=" w-96 border">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">Loan ID</th>
-            <th className="py-2 px-4 border-b">Loan Amount</th>
-            <th className="py-2 px-4 border-b">Repaid Status</th>
+            <th className={cellStyle}>Loan ID</th>
+            <th className={cellStyle}>Loan Amount</th>
+            <th className={cellStyle}>Repaid Status</th>
           </tr>
         </thead>
         <tbody>
@@ -61,9 +62,9 @@ const CurrentLoan = () => {
           ) : (
             filterloans.map((loan) => (
               <tr key={loan.id}>
-                <td className="py-2 px-4 border-b">{loan.id}</td>
-                <td className="py-2 px-4 border-b">${loan.amount}</td>
-                <td className="py-2 px-4 border-b">{loan.repaid ? 'Repaid' : 'Unpaid'}</td>
+                <td className={cellStyle}>{loan.id}</td>
+                <td className={cellStyle}>${loan.amount}</td>
+                <td className={cellStyle}>{loan.repaid ? 'Repaid' : 'Unpaid'}</td>
               </tr>
             ))
           )}

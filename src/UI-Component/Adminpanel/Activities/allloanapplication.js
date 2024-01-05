@@ -1,52 +1,42 @@
-
-
-
 import React, { useState } from 'react';
+import ApplicationLoans from './dummydata/utliallloanapplications';
 
 const AllLoanApplications = () => {
-  // Dummy data for demonstration
-  const dummyLoanApplications = [
-    { id: 1, name: 'John Doe', amount: 5000, company_name: 'Joe Construction', job_title:'Security', loan_term: '3 months', status: 'Pending', createdOn: '2023-01-10' },
-    { id: 2, name: 'John Doe', amount: 5000, company_name: 'Joe Construction', job_title:'Security', loan_term: '3 months', status: 'Pending', createdOn: '2023-01-10' },
-    { id: 3, name: 'Jane Smith', amount: 10000, company_name: 'Joe Construction', job_title:'Cleaner',  loan_term: '9 months', status: 'Approved', createdOn: '2023-02-15' },
-    // ... other entries
-  ];
 
-  const [loanApplications, setLoanApplications] = useState(dummyLoanApplications);
+  const headingStyle = "col-span-1 text-left font-bold text-sm border-b-2 bg-gray-400"
+  const bodyStyle = "col-span-1 border-b-2 text-sm"
+
+  const [loanApplications, setLoanApplications] = useState(ApplicationLoans);
 
   return (
-    <div className='ml-20 h-screen mx-auto container justify-center content-center mt-20'>
-      <table className='w-10/12 bg-white border mx-auto mb-80'>
-        <thead>
-          <tr className='py-5'>
-            <th className='text-left text-sm p-5 border-b-2 bg-gray-400'>ID</th>
-            <th className='text-left text-sm border-b-2 bg-gray-400'>Name</th>
-            <th className='text-left text-sm border-b-2 bg-gray-400'>Amount</th>
-            <th className='text-left text-sm border-b-2 bg-gray-400'>Company Name</th>
-            <th className='text-left text-sm border-b-2 bg-gray-400'>Job Title</th>
-            <th className='text-left text-sm border-b-2 bg-gray-400'>Loan Term</th>
-            <th className='text-left text-sm border-b-2 bg-gray-400'>Created On</th>
-            <th className='text-left text-sm border-b-2 bg-gray-400'>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {loanApplications.map((application) => {
-            const { id, name, amount, company_name, job_title, loan_term, createdOn, status } = application;
-            return (
-              <tr key={id}>
-                <td className='border-b-2 text-sm'>{id}</td>
-                <td className='border-b-2 text-sm'>{name}</td>
-                <td className='border-b-2 text-sm'>{amount}</td>
-                <td className='border-b-2 text-sm'>{company_name}</td>
-                <td className='border-b-2 text-sm'>{job_title}</td>
-                <td className='border-b-2 text-sm'>{loan_term}</td>
-                <td className='border-b-2 text-sm'>{createdOn}</td>
-                <td className='border-b-2 text-sm'>{status}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className="mx-auto container text-black justify-center content-center mt-20">
+
+      <div className="grid grid-cols-8 w-full sm:w-10/12 bg-white border mx-auto mb-80">
+        <div className={headingStyle}>Id</div>
+        <div className={headingStyle}>Name</div>
+        <div className={headingStyle}>Amount</div>
+        <div className={headingStyle}>Company Name</div>
+        <div className={headingStyle}>Job Title</div>
+        <div className={headingStyle}>Loan Term</div>
+        <div className={headingStyle}>Created On</div>
+        <div className={headingStyle}>Status</div>
+
+        {loanApplications.map((application) => {
+          const { id, name, amount, company_name, job_title, loan_term, createdOn, status } = application;
+          return (
+            <React.Fragment key={id}>
+              <div className={bodyStyle}>{id}</div>
+              <div className={bodyStyle}>{name}</div>
+              <div className={bodyStyle}>{amount}</div>
+              <div className={bodyStyle}>{company_name}</div>
+              <div className={bodyStyle}>{job_title}</div>
+              <div className={bodyStyle}>{loan_term}</div>
+              <div className={bodyStyle}>{createdOn}</div>
+              <div className={bodyStyle}>{status}</div>
+            </React.Fragment>
+          );
+        })}
+      </div>
     </div>
   );
 };

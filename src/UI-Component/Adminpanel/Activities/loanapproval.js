@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
+import loanApprovals from './util';
 
 const LoanApprovalPage = () => {
-  // Dummy data for loan applications
-  const loanApplications = [
-    { id: 1, customerName: 'John Doe', loanAmount: 5000, status: 'Pending',comment: 'Blurry Bank Statement '},
-    { id: 2, customerName: 'Jane Smith', loanAmount: 8000, status: 'Pending',  comment: 'incomplete document'},
-    { id: 3, customerName: 'Bob Johnson', loanAmount: 10000, status: 'Pending', comment: 'incomplete document' },
-    // Add more entries as needed
-  ];
+  
 
-  const [applications, setApplications] = useState(loanApplications);
+  const [applications, setApplications] = useState(loanApprovals);
 
   const handleApproveReject = (id, action) => {
     const updatedApplications = applications.map((app) => {
@@ -23,11 +18,11 @@ const LoanApprovalPage = () => {
   };
 
   return (
-    <div className=" h-screen mx-auto mt-16">
+    <div className=" h-screen  text-sm text-black mx-auto mt-16">
       <h1 className="text-xl  border border-b-blue-900 font-bold mb-6">Loan Approval</h1>
 
-      {/* Loan applications grid */}
-      <div className="grid grid-cols-5  border border-b-blue-900 gap-4">
+    
+      <div className="grid grid-cols-5 border  gap-4">
         <div className="col-span-1 font-bold">Customer Name</div>
         <div className="col-span-1 font-bold">Loan Amount</div>
         <div className="col-span-1 font-bold">Status</div>

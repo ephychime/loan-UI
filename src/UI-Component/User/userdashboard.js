@@ -1,12 +1,12 @@
-import FirstPane from "./firstpane";
-import SecondPane from "./secondpane";
+
+import UserPageLayout from "./userpagelayout";
 
 import Sidebar from "./sidebar";
 
 const UserDashBoard = ()=>{
     return (
 <div>
-    <SecondPane />
+    <UserPageLayout/>
 </div>
     )
 }

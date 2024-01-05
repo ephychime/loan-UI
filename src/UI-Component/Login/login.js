@@ -12,6 +12,7 @@ const SignIn = () => {
   });
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,19 +33,13 @@ const SignIn = () => {
       password: "password123",
     };
 
-    if (
-      formInput.email === adminCredentials.email &&
-      formInput.password === adminCredentials.password
-    ) {
-      setIsLoggedIn(true);
-    } else if (
-      formInput.email === userCredentials.email &&
-      formInput.password === userCredentials.password
-    ) {
-      setIsLoggedIn(true);
-    } else {
-      alert("Invalid credentials. Please try again.");
-    }
+    setIsAdmin(formInput.email === adminCredentials.email);
+    setIsLoggedIn(
+      (formInput.email === adminCredentials.email &&
+        formInput.password === adminCredentials.password) ||
+        (formInput.email === userCredentials.email &&
+          formInput.password === userCredentials.password)
+    );
   };
 
   const handleSignUpClick = () => {
@@ -58,7 +53,7 @@ const SignIn = () => {
   return (
     <div className="">
       {isLoggedIn ? (
-        formInput.email === "admin@mail.com" ? (
+        isAdmin ? (
           <AdminDashboard />
         ) : (
           <UserDashBoard />
@@ -98,9 +93,9 @@ const SignIn = () => {
         LOGIN
       </button>
 
-      {/* <p className="ml-4 sm:ml-24 py-8 ml-4 sm:ml-32 text-sm">Forgot your password?</p> */}
+      <p className="ml-4 sm:ml-24 py-8 ml-4 sm:ml-32 text-sm">Forgot your password?</p>
       <div className="flex gap-1 mt-16 sm:w-96 mx-auto items-center">
-        <p className="text-sm">Don't have an account?{" "}</p>
+        <p className="text-sm">Don't have an account?</p>
         <button
           type="button"
           className="text-blue-400 text-sm"
@@ -109,7 +104,7 @@ const SignIn = () => {
           Create one
         </button>
       </div>
-          {/* ... (your existing form code) */}
+          
         </form>
       ) : (
         <SignUpPage onBackToLoginClick={handleBackToLoginClick} />

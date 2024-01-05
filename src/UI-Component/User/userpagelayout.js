@@ -3,7 +3,7 @@ import ApplicationForm from "./loanapplication/applicationform";
 import PaymentHistory from './paymenthistory';
 import Sidebar from './sidebar';
 
-const SecondPane = () => {
+const UserPageLayout = () => {
     const [showApplicationForm, setShowApplicationForm] = useState(false);
     const [showPaymentHistory, setShowPaymentHistory] = useState(false);
 
@@ -18,7 +18,7 @@ const SecondPane = () => {
     };
 
     return (
-        <div className=" bg-gray-400 gap-20 flex ">
+        <div className=" gap-20 flex ">
             {showApplicationForm ? (
                 <ApplicationForm />
             ) : showPaymentHistory ? (
@@ -40,13 +40,13 @@ const SecondPane = () => {
                                 <button
                                     onClick={handleGetLoanClick}
                                     type="submit"
-                                    className='mr-10 mt-10 bg-white  ml-32 text-black font-bold hover:bg-blue-400 text-xl w-40 border-bg-blue-900 border-blue-900 p-3 rounded-full'
+                                    className='mr-10 mt-10 bg-blue-400  ml-32 text-black font-bold hover:bg-gray-500 text-xl w-40  border-blue-900 p-3 rounded-full'
                                 >
                                     GET LOAN
                                 </button>
                                 <button
                                     onClick={handleViewPaymentClick}
-                                    className='p-3 bg-white border-bg-white hover:bg-blue-400 font-bold text-xl text-black items-center mt-24 justify-center text-center border rounded-full'
+                                    className='p-3 bg-blue-400 border-bg-white hover:bg-blue-400 font-bold text-xl text-black items-center mt-24 justify-center text-center border rounded-full'
                                 >
                                     VIEW ALL LOAN AND PAYMENT
                                 </button>
@@ -59,4 +59,4 @@ const SecondPane = () => {
     );
 };
 
-export default SecondPane;
+export default UserPageLayout;

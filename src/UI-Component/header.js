@@ -20,12 +20,12 @@ const Navbar = () => {
     <div className=" text-blue-900">
       <nav className="container  mx-auto flex items-center justify-between p-4">
 
-        {/* Logo */}
+        
         <div>
           <span className="text-lg font-semibold logo">Quick Collect.co</span>
         </div>
 
-        {/* Navigation Links */}
+        
         <div className="hidden lg:flex  font-bold items-center space-x-4">
           <a href="#" className="hover:text-gray-300">Home</a>
           <a href="#" className="hover:text-gray-300">About</a>
@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Show Login Component if needed */}
+      
       {showLogin && (
         <div>
           <SignIn userType={userType} />

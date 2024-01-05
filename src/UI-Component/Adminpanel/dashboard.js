@@ -1,16 +1,11 @@
 
-import MainPage from "./main"
-import FirstPane from "../User/firstpane";
-
+import AdminPageLayout from "./main";
 
 const AdminDashboard = ()=>{
     return (
-        <div className="flex bg-gray-400">
-            
-{/* <SideBar/> */}
-<MainPage />
-{/* <FirstPane/> */}
-        </div>
+        <div className="flex ">
+<AdminPageLayout />
+ </div>
     )
 }
 export default AdminDashboard;

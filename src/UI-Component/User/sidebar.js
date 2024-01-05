@@ -44,7 +44,6 @@ const Sidebar = () => {
       
         <nav className="flex  text-center ">
         <ul>
-          
          
           <li className="flex items-center mb-4">
             <FiLogOut className="mr-2 w-7" />
