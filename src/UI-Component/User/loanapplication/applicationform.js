@@ -1,13 +1,14 @@
 
-
-
 import React, { useState, useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import PersonalInfo from "./personal";
 import EmploymentInfo from "./employerinfo"
 
+
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
-    // Your initial form data here
+    
     name: "",
     email: "",
     address: "",
@@ -44,7 +45,7 @@ const ApplicationForm = () => {
       alert("Form submitted");
       setFormSubmitted(true);
     } else {
-      alert("Please fill all form fields.");
+      toast.error("Please fill all form fields.");
     }
   };
 
@@ -78,6 +79,7 @@ const ApplicationForm = () => {
 
   return (
     <div className="mt-5 sm:ml-5 md:ml-10 lg:mx-52 xl:ml-64 shadow-md mx-auto shadow-teal-800 h-full">
+      
       <form onSubmit={handleSubmit} className="p-4 sm:p-6 md:p-8 lg:p-10">
       <h1 className="font-bold  text-black text-m mb-4">Please fill out this form to get started:</h1>
         <div className="flex flex-col gap-8 sm:flex-row md:flex-row lg:flex-row">
@@ -89,6 +91,9 @@ const ApplicationForm = () => {
 
         </div>
       </form>
+      <ToastContainer
+      position="top-center"
+      autoClose={2000}  />
     </div>
   );
 };

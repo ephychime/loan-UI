@@ -60,6 +60,7 @@ const EmploymentInfo = ({ formData, handleChange }) => {
         name="proofofFunds"
         type="file"
         id="file"
+        accept=" .pdf"
         className="border text-blue-900 rounded p-2 mb-4"/>
 
 <label className="font-bold text-blue-900 mb-2">
@@ -82,15 +83,17 @@ options={existingLoanOptions}/>
               placeholder="abc@gmail.com"  />
           
           <label className=" font-bold  text-blue-900 mb-2">
-    Loan Amount
+    Loan Amount (up to $1500)
   </label>
-  <SelectInput
-name="loanAmount"
-value={formData.loanAmount}
-onChange={handleChange}
-className=" border  text-black rounded p-2 mb-4"
-options={loanAmountOptions}/>
+  <input
+              type="text"
+              name="loanAmount"
+              value={formData.loanAmount}
+              onChange={handleChange}
+              className="border text-blue-900 rounded p-2 mb-4"
+             />
     </div>
   );
 };
 export default EmploymentInfo;
+

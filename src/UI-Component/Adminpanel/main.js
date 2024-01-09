@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import ViewVerified from "./Activities/verifyloan/verifyloan";
-import CurrentLoan from "./Activities/currentloan";
-import AllLoanApplications from "./Activities/allloanapplication";
-import AdminHome from "./adminhome";
-import LoanApprovalPage from "./Activities/loanapproval"
-import SpecialLoanRequest from "./Activities/specialloans.js";
-import PostTransactionForm from "./Activities/postloanrepayment/post-transactionform";
+import buttonSwitch from "./Activities/dummydata/buttonswitch";
 import classNames from "classnames";
 import buttonNames  from "./button_names";
 import AdminIcons from "../User/adminicons";
@@ -48,26 +42,7 @@ const AdminPageLayout = () => {
       </div>
 
       <div className="flex flex-col items-center">
-  {(() => {
-    switch (activeButton) {
-      case buttonNames.verifyLoan:
-        return <ViewVerified />;
-      case buttonNames.loanApplications:
-        return <AllLoanApplications />;
-      case buttonNames.currentLoans:
-        return <CurrentLoan />;
-      case buttonNames.adminHome:
-        return <AdminHome />;
-      case buttonNames.loanApproval:
-        return <LoanApprovalPage />;
-      case buttonNames.specialRequest:
-        return <SpecialLoanRequest />;
-      case buttonNames.postTransactionForm:
-        return <PostTransactionForm />;
-      default:
-        return <AdminPageLayout/>
-    }
-  })()}
+      {buttonSwitch(activeButton)}
 </div>
 
     </div>

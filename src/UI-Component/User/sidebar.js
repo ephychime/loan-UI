@@ -1,5 +1,5 @@
 import React from "react";
-import { FiHome, FiMessageSquare, FiUsers, FiSettings, FiLogOut } from "react-icons/fi";
+import { FiHome, FiLogOut } from "react-icons/fi";
 import { AiOutlineTransaction } from "react-icons/ai";
 import { SiContactlesspayment } from "react-icons/si";
 import { GiHelp } from "react-icons/gi";
